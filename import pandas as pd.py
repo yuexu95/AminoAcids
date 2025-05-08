@@ -2,6 +2,9 @@ import pandas as pd
 import plotly.graph_objects as go
 import re
 
+# 确保安装了 kaleido 库，用于导出图像
+# pip install -U kaleido
+
 # 原始数据
 raw_data = [
     {"name": "ChaCHL10", "value": 17.823187},
@@ -95,4 +98,9 @@ fig = go.Figure(
 
 # 设置图表标题和样式
 fig.update_layout(title_text="Top 20 Pathways by Value", font_size=12)
+
+# 显示图表
 fig.show()
+
+# 导出图表为 SVG 格式
+fig.write_image("sankey_diagram.svg", format="svg")
